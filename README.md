@@ -1,6 +1,6 @@
 # tekton
 
-Install tekton:
+### Install tekton pipeline:
 ```bash
 kubectl apply -f https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
 ```
@@ -22,8 +22,9 @@ spec:
     path: "/opt/tekton"
 EOF
 ```
+---
 
-Install tektoncd-cli:
+### Install tektoncd-cli:
 ```bash
 sudo apt update;sudo apt install -y gnupg
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3EFE0E0A2F2F60AA
@@ -56,7 +57,7 @@ tkn task start hello
 ```
 ---
 
-Install Dashboard:
+### Install Dashboard:
 ```bash
 kubectl apply -f https://github.com/tektoncd/dashboard/releases/latest/download/tekton-dashboard-release.yaml
 ```
@@ -93,5 +94,10 @@ spec:
             servicePort: 9097
 EOF
 ```
+---
 
+### Install Triggers:
+```bash
+kubectl apply -f https://storage.googleapis.com/tekton-releases/triggers/latest/release.yaml
+```
 
