@@ -54,4 +54,11 @@ Test dry-run then start the task:
 tkn task start hello --dry-run
 tkn task start hello
 ```
+---
+
+Install Dashboard:
+```bash
+kubectl apply -f https://github.com/tektoncd/dashboard/releases/latest/download/tekton-dashboard-release.yaml
+```
+
 
