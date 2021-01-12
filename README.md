@@ -61,4 +61,37 @@ Install Dashboard:
 kubectl apply -f https://github.com/tektoncd/dashboard/releases/latest/download/tekton-dashboard-release.yaml
 ```
 
+Add TLS certificate
+```bash
+kubectl create secret tls letsencrypt \
+  --key ./shubhamtatvamasi.com.key \
+  --cert ./fullchain.cer \
+  -n tekton-pipelines
+```
+
+Only if you want to expose services to the world. Not recommended for Production. 
+Create ingress value: 
+```bash
+kubectl apply -f - << EOF
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: tekton
+  namespace: tekton-pipelines
+spec:
+  tls:
+    - hosts:
+      - tekton.k8s.shubhamtatvamasi.com
+      secretName: letsencrypt
+  rules:
+    - host: tekton.k8s.shubhamtatvamasi.com
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: tekton-dashboard
+            servicePort: 9097
+EOF
+```
+
 
