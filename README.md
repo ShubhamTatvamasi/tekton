@@ -1,10 +1,13 @@
 # tekton
 
-### Install tekton pipeline:
+### Install tekton pipeline, triggers and dashboard:
 ```bash
 kubectl apply -f https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
+kubectl apply -f https://storage.googleapis.com/tekton-releases/triggers/latest/release.yaml
+kubectl apply -f https://github.com/tektoncd/dashboard/releases/latest/download/tekton-dashboard-release.yaml
 ```
 
+For future use.
 create PersistentVolume:
 ```bash
 kubectl apply -f - << EOF
@@ -57,11 +60,6 @@ tkn task start hello
 ```
 ---
 
-### Install Dashboard:
-```bash
-kubectl apply -f https://github.com/tektoncd/dashboard/releases/latest/download/tekton-dashboard-release.yaml
-```
-
 Add TLS certificate
 ```bash
 kubectl create secret tls letsencrypt \
@@ -94,10 +92,3 @@ spec:
             servicePort: 9097
 EOF
 ```
----
-
-### Install Triggers:
-```bash
-kubectl apply -f https://storage.googleapis.com/tekton-releases/triggers/latest/release.yaml
-```
-
