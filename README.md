@@ -31,3 +31,27 @@ echo "deb http://ppa.launchpad.net/tektoncd/cli/ubuntu eoan main"|sudo tee /etc/
 sudo apt update && sudo apt install -y tektoncd-cli
 ```
 
+Create a task:
+```bash
+kubectl apply -f - << EOF
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: hello
+spec:
+  steps:
+    - name: hello
+      image: ubuntu
+      command:
+        - echo
+      args:
+        - "Hello World!"
+EOF
+```
+
+Test dry-run then start the task:  
+```bash
+tkn task start hello --dry-run
+tkn task start hello
+```
+
