@@ -8,4 +8,4 @@ spec:
       image: busybox
       command:
         - /bin/sh
-      args: ['-c', 'echo Hello World Shubham']
+      args: ['-c', 'echo Hello World']
