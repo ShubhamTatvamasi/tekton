@@ -7,6 +7,12 @@ kubectl apply -f https://storage.googleapis.com/tekton-releases/triggers/latest/
 kubectl apply -f https://github.com/tektoncd/dashboard/releases/latest/download/tekton-dashboard-release.yaml
 ```
 
+set up port forwarding with Tekton Dashboard:
+```bash
+kubectl -n tekton-pipelines port-forward svc/tekton-dashboard 9097:9097
+```
+> Once set up, the dashboard is available in the browser under the address `localhost:9097`
+
 For future use.
 create PersistentVolume:
 ```bash
