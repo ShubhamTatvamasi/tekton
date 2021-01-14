@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: demo-tekton-git
+spec:
+  type: git
+  params:
+    - name: url
+      value: https://github.com/ShubhamTatvamasi/tekton
+    - name: revision
+      value: master
