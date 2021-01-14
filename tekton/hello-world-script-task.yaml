@@ -7,7 +7,7 @@ spec:
     - name: say-hello-from-script
       image: busybox
       script: |
-        #!/usr/bin/env sh
+        #!/bin/env sh
         echo Script Start...
         pwd
         whoami
