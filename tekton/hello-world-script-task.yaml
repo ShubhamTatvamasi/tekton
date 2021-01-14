@@ -11,5 +11,5 @@ spec:
         echo Script Start...
         pwd
         whoami
-        ls
+        ls -a
         echo Script End.
