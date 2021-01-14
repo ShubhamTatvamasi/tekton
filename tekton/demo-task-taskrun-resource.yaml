@@ -1,0 +1,38 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: demo-tekton-git
+spec:
+  type: git
+  params:
+    - name: url
+      value: https://github.com/ShubhamTatvamasi/tekton
+    - name: revision
+      value: master
+---
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: read-task
+spec:
+  resources:
+    inputs:
+      - name: workspace
+        type: git
+  steps:
+    - name: readme
+      image: ubuntu
+      script: cat workspace/README.md
+---
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: read-repo-run
+spec:
+  taskRef:
+    name: read-task
+  resources:
+    inputs:
+      - name: workspace
+        resourceRef:
+          name: demo-tekton-git
