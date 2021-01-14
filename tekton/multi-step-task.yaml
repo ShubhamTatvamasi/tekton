@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: hello-world-multi-step
+  name: multi-step
 spec:
   steps:
     - name: write-hello

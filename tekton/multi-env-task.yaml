@@ -1,0 +1,21 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: multi-env
+spec:
+  steps:
+    - name: bash-env
+      image: ubuntu
+      script: |
+        #!/usr/bin/env bash
+        echo "Hello from Bash!"
+    - name: python-env
+      image: python:alpine
+      script: |
+        #!/usr/bin/env python3
+        print("Hello from Python!")
+    - name: node-env
+      image: node:alpine
+      script: |
+        #!/usr/bin/env node
+        console.log("Hello from Node!")
