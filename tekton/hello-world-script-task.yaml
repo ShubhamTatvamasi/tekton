@@ -1,0 +1,15 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: hello-world-script
+spec:
+  steps:
+    - name: say-hello-from-script
+      image: busybox
+      script: |
+        #!/usr/bin/env sh
+        echo Script Start...
+        pwd
+        whoami
+        ls
+        echo Script End.
