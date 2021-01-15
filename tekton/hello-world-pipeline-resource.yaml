@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: hello-world-pipeline-resource
+spec:
+  resources:
+    - name: my-repo
+      type: git
+  tasks:
+    - name: task-1-fetch
+      taskRef:
+        name: read-task
+      resources:
+        inputs:
+          - name: workspace
+            resource: my-repo

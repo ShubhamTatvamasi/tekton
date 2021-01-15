@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: hello-world-pipeline
+spec:
+  tasks:
+    - name: multi-lang-hello-world
+      taskRef:
+        name: multi-env
+    - name: fetch-hello-world
+      taskRef:
+        name: hello-world
