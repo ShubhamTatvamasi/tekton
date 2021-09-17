@@ -1,5 +1,7 @@
 # tekton
 
+https://tekton.dev/docs/getting-started/
+
 ### Install tekton pipeline, triggers and dashboard:
 ```bash
 kubectl apply -f https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
